@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AR Resume - Snehal Lal Das</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+
+  <body style="margin: 0; overflow: hidden;">
+    <!-- Added cursor="rayOrigin: mouse" for touch/click support -->
+    <a-scene embedded arjs cursor="rayOrigin: mouse">
+
+      <a-marker preset="hiro">
+        <a-text value="Snehal Lal Das" position="0 0.6 0" align="center" width="1" color="#FFFFFF"></a-text>
+        <a-text value="AI/ML Engineer" position="0 0.5 0" align="center" width="0.8" color="#00FFFF"></a-text>
+
+        <!-- id added, onclick removed, class="clickable" added -->
+        <a-entity id="jobgenie-link" class="clickable" position="0 0.37 0">
+          <a-plane width="1" height="0.1" color="#1a1a2e" opacity="0.8"></a-plane>
+          <a-text value="JobGenie AI" align="center" color="#FFD700" width="0.8" position="0 0 0.001"></a-text>
+        </a-entity>
+
+        <a-entity id="CodeSentinel-link" class="clickable" position="0 0.20 0">
+          <a-plane width="1" height="0.1" color="#1a1a2e" opacity="0.8"></a-plane>
+          <a-text value="CodeSentinel" align="center" color="#FFD700" width="0.8" position="0 0 0.001"></a-text>
+        </a-entity>
+        
+        <a-entity id="CodebaseRAG-link" class="clickable" position="0 0.05 0">
+          <a-plane width="1" height="0.1" color="#1a1a2e" opacity="0.8"></a-plane>
+          <a-text value="Codebase RAG" align="center" color="#FFD700" width="0.8" position="0 0 0.001"></a-text>
+        </a-entity>
+        
+        <a-entity id="portfolio-link" class="clickable" position="0 -0.1 0">
+          <a-plane width="1" height="0.1" color="#1a1a2e" opacity="0.8"></a-plane>
+          <a-text value="Portfolio" align="center" color="#90EE90" width="0.6" position="0 0 0.001"></a-text>
+        </a-entity>
+      </a-marker>
+
+      <!-- Only ONE camera entity, with cursor inside -->
+      <a-entity camera look-controls>
+        <a-entity cursor="fuse: false" position="0 0 -1"
+          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+          material="color: white; shader: flat">
+        </a-entity>
+      </a-entity>
+
+    </a-scene>
+
+    <!-- Event listener using JS instead of onclick -->
+    <script>
+      document.querySelector('#jobgenie-link').addEventListener('click', function () {
+        window.open('https://job-genie-frontend.vercel.app', '_blank');
+      });
+      document.querySelector('#CodeSentinel-link').addEventListener('click', function () {
+        window.open('https://snehallaldas.github.io/CodeSentinel/', '_blank');
+      });
+      document.querySelector('#CodebaseRAG-link').addEventListener('click', function () {
+        window.open('https://github.com/Snehallaldas/Codebase-Rag', '_blank');
+      });
+      document.querySelector('#portfolio-link').addEventListener('click', function () {
+        window.open('https://portfolio-snehallaldas-projects.vercel.app', '_blank');
+      });
+    </script>
+
+  </body>
+</html>
